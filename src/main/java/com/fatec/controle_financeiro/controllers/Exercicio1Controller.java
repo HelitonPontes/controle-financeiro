@@ -10,9 +10,7 @@ package com.fatec.controle_financeiro.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 //http://localhost:8090/api/exercicios1
@@ -108,6 +106,14 @@ public class Exercicio1Controller {
         }
         public void setIdade(int idade) {
             this.idade = idade;
+        }
+        public String getName() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getName'");
+        }
+        public String getAge() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getAge'");
         }
 
 
