@@ -90,7 +90,7 @@ public class Exercicio1Controller {
 
     // Criação de Classes
 
-    public  class User {
+    public  class User01 {
 
         private String  nome; 
         private int idade;
