@@ -1,14 +1,17 @@
 package com.fatec.controle_financeiro.controllers;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
+//import org.springframework.boot.autoconfigure.security.oauth2.server.servlet.OAuth2AuthorizationServerProperties.Client;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fatec.controle_financeiro.entities.User;
+import com.fatec.controle_financeiro.entities.Cliente;
+//import com.fatec.controle_financeiro.entities.User;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,44 +24,44 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("/api/user")
-public class UseController {
+@RequestMapping("/api/cliente")
+public class ClienteController {
     
-    private List<User> usuarios = new ArrayList<>();
+    private List<Cliente> clientes = new ArrayList<>();
     private int proximoId = 1;
 
     //CRUD = CREATE, READ, UPDATE E DELETE
     
     //CREATE    
     @PostMapping()
-    public ResponseEntity<User> createUse(@RequestBody User usuario) {
+    public ResponseEntity<Cliente> createCliente(@RequestBody Cliente CLIENTE) {
 
-        for (User user : usuarios) {
-            if (user.getName().equals(usuario.getName())) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getNome().equals(cliente.getNome())) {
                 throw new IllegalArgumentException("ja existe nome");
             }
         }
 
-        usuario.setId(proximoId++);
-        usuarios.add(usuario);
+        CLIENTE.setId(proximoId++);
+        clientes.add(CLIENTE);
 
-        return new ResponseEntity<>(usuario, HttpStatus.CREATED);
+        return new ResponseEntity<>(CLIENTE, HttpStatus.CREATED);
     }
 
 
     //READ
     @GetMapping()
-    public ResponseEntity<List<User>> getAllUser() {
-        return new ResponseEntity<>(usuarios, HttpStatus.OK);
+    public ResponseEntity<List<Cliente>> getAllClientes() {
+        return new ResponseEntity<>(clientes, HttpStatus.OK);
     }
     
     @GetMapping("{id}")
-    public ResponseEntity<User> getById(@PathVariable int id) {
+    public ResponseEntity<Cliente> getById(@PathVariable int id) {
         // Percorre a lista de usuários para encontrar o usuário com o ID correspondente
-        for (User user : usuarios) {
-            if (user.getId() == id) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
                 // Se o usuário for encontrado, retorna-o com status 200 OK
-                return new ResponseEntity<>(user, HttpStatus.OK);
+                return new ResponseEntity<>(cliente, HttpStatus.OK);
             }
         }
         // Se o usuário não for encontrado, retorna status 404 Not Found
@@ -67,15 +70,18 @@ public class UseController {
     
     //UPDATE
     @PutMapping("{id}")
-    public ResponseEntity<User> updateUser(@PathVariable int id, @RequestBody User entity) {
+    public ResponseEntity<Cliente> updateCliente(@PathVariable int id, @RequestBody Cliente entity) {
          // Percorre a lista de usuários para encontrar o usuário com o ID correspondente
-         for (User user : usuarios) {
-            if (user.getId() == id) {
+         for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
                 // Se o usuário for encontrado, atualiza suas informações
-                user.setName(entity.getName());
-                user.setAge(entity.getAge());
+                cliente.setNome(entity.getNome());
+                cliente.setEmail(entity.getEmail());
+                cliente.setTelefone(entity.getTelefone());
+                cliente.setCidade(entity.getCidade());
+
                 // Retorna o usuário atualizado com status 200 OK
-                return new ResponseEntity<>(user, HttpStatus.OK);
+                return new ResponseEntity<>(cliente, HttpStatus.OK);
             }
         }
         // Se o usuário não for encontrado, retorna status 404 Not Found
@@ -84,12 +90,12 @@ public class UseController {
 
     //DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable int id) {
+    public ResponseEntity<Void> deleteCliente(@PathVariable int id) {
         // Percorre a lista de usuários para encontrar o usuário com o ID correspondente
-        for (User user : usuarios) {
-            if (user.getId() == id) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
                 // Se o usuário for encontrado, remove-o da lista
-                usuarios.remove(user);
+                clientes.remove(cliente);
                 // Retorna status 204 No Content
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
@@ -98,3 +104,5 @@ public class UseController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
+  
+

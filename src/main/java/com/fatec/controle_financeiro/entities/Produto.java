@@ -8,5 +8,56 @@ public class Produto {
     private double valorCompra;
     private int qtdEstoque;
     private Categoria categoria;
+
+    public Produto (){
+        
+    }
+
+    public Produto(int id, String nome, double valorVenda, double valorCompra, int qtdEstoque, Categoria categoria) {
+        this.id = id;
+        this.nome = nome;
+        this.valorVenda = valorVenda;
+        this.valorCompra = valorCompra;
+        this.qtdEstoque = qtdEstoque;
+        this.categoria = categoria;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public double getValorVenda() {
+        return valorVenda;
+    }
+    public double getValorCompra() {
+        return valorCompra;
+    }
+    public int getQtdEstoque() {
+        return qtdEstoque;
+    }
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setValorVenda(double valorVenda) {
+        this.valorVenda = valorVenda;
+    }
+    public void setValorCompra(double valorCompra) {
+        this.valorCompra = valorCompra;
+    }
+    public void setQtdEstoque(int qtdEstoque) {
+        this.qtdEstoque = qtdEstoque;
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     
 }

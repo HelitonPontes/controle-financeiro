@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/api/user")
-public class UseController {
+public class UserController {
     
     private List<User> usuarios = new ArrayList<>();
     private int proximoId = 1;

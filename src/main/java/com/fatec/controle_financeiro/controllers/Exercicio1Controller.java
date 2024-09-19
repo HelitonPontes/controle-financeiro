@@ -107,21 +107,11 @@ public class Exercicio1Controller {
         public void setIdade(int idade) {
             this.idade = idade;
         }
-        public String getName() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'getName'");
-        }
-        public String getAge() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'getAge'");
-        }
-
-
-    
-        
+      
     }
-
-
-
-
 }
+
+      
+    
+
+
