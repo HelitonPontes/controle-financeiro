@@ -2,8 +2,8 @@ package com.fatec.controle_financeiro.entities;
 
 public class Cliente {
 
-  private int id;
-  private String nome;
+  int id;
+  String nome;
   private String email;
   private String telefone;
   private String cidade;
@@ -49,13 +49,6 @@ public class Cliente {
     this.cidade = cidade;
   }
 
-  
-
-
-
-  
-
-  
 
   
 }

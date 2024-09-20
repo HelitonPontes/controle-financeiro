@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.3.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fatec</groupId>
 	<artifactId>controle-financeiro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>controle-financeiro</name>
-	<description>Controle Financeiro</description>
+	<description>Controle financeiro</description>
 	<url/>
 	<licenses>
 		<license/>
