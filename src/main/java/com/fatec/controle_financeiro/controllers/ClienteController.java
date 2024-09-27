@@ -4,14 +4,15 @@ package com.fatec.controle_financeiro.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.autoconfigure.security.oauth2.server.servlet.OAuth2AuthorizationServerProperties.Client;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fatec.controle_financeiro.domain.cliente.ClienteRepository;
 import com.fatec.controle_financeiro.entities.Cliente;
-//import com.fatec.controle_financeiro.entities.User;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,17 +27,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 @RequestMapping("/api/cliente")
 public class ClienteController {
+
+    @Autowired
+    private ClienteRepository clienteRepository;
     
     private List<Cliente> clientes = new ArrayList<>();
-    private int proximoId = 1;
+    //private int proximoId = 1;
 
     //CRUD = CREATE, READ, UPDATE E DELETE
     
     //CREATE    
     @PostMapping()
-    public ResponseEntity<Cliente> createCliente(@RequestBody Cliente CLIENTE) {
+    public ResponseEntity<Cliente> createCliente(@RequestBody Cliente cliente) {
 
-        for (Cliente cliente : clientes) {
+        /*for (Cliente cliente : clientes) {
             if (cliente.getNome().equals(cliente.getNome())) {
                 throw new IllegalArgumentException("ja existe nome");
             }
@@ -45,13 +49,21 @@ public class ClienteController {
         CLIENTE.setId(proximoId++);
         clientes.add(CLIENTE);
 
-        return new ResponseEntity<>(CLIENTE, HttpStatus.CREATED);
+        return new ResponseEntity<>(CLIENTE, HttpStatus.CREATED);*/
+
+        Cliente clienteCreated = clienteRepository.save(cliente);
+        return new ResponseEntity<>(clienteCreated, HttpStatus.CREATED);
     }
 
 
     //READ
+
     @GetMapping()
-    public ResponseEntity<List<Cliente>> getAllClientes() {
+    public ResponseEntity<List<Cliente>> getAllCliente() {
+        //return new ResponseEntity<>(clientes, HttpStatus.OK);
+
+        List<Cliente> clientes = clienteRepository.findAll();
+ 
         return new ResponseEntity<>(clientes, HttpStatus.OK);
     }
     
@@ -76,9 +88,7 @@ public class ClienteController {
             if (cliente.getId() == id) {
                 // Se o usuário for encontrado, atualiza suas informações
                 cliente.setNome(entity.getNome());
-                cliente.setEmail(entity.getEmail());
-                cliente.setTelefone(entity.getTelefone());
-                cliente.setCidade(entity.getCidade());
+                
 
                 // Retorna o usuário atualizado com status 200 OK
                 return new ResponseEntity<>(cliente, HttpStatus.OK);
