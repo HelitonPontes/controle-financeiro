@@ -60,6 +60,7 @@ public class ClienteController {
 
     @GetMapping()
     public ResponseEntity<List<Cliente>> getAllCliente() {
+        
         //return new ResponseEntity<>(clientes, HttpStatus.OK);
 
         List<Cliente> clientes = clienteRepository.findAll();
