@@ -11,14 +11,14 @@ import com.fatec.controle_financeiro.entities.Cliente;
 
     public interface ClienteRepository  extends JpaRepository<Cliente, Integer> {
           // Busca por nome usando =
-    List<Cliente> findAllByName(String name);
+    List<Cliente> findAllByNome(String nome);
  
     // Busca por nome usando LIKE %nameparam%
-    List<Cliente> findAllByNameContaining(String name);
+    List<Cliente> findAllByNomeContaining(String nome);
  
     //// Busca por nome usando LIKE com query manual
-    @Query("SELECT c FROM Cliente c WHERE c.name LIKE %:name%")
-    List<Cliente> buscarClientesPorNome(@Param("name") String name);
+    @Query("SELECT c FROM Cliente c WHERE c.nome LIKE %:nome%")
+    List<Cliente> buscarClientesPorNome(@Param("nome") String  nome);
 }
 
     
