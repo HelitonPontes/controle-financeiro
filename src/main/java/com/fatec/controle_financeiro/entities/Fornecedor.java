@@ -17,13 +17,13 @@ public class Fornecedor {
     @Column(nullable = false, length = 60)
     private String name;
  
-    // Construtor padrão
-    public void Fornecedor() {
-    }
+    //Construtor padrão
+    public Fornecedor() {}
+    
  
-    public void Fornecedor(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Fornecedor(int id, String name) {
+       this.id = id;
+       this.name = name;
     }
  
     // Getters e Setters

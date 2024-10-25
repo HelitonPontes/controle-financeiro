@@ -32,7 +32,7 @@ public class ContasPagar {
     @Column(name = "valor", precision = 12, scale = 2)
     private BigDecimal valor;
  
-    public void ContasPagar() {}
+    public ContasPagar() {}
  
     public Long getId() {
         return id;

@@ -35,7 +35,7 @@ public class ContasReceber {
     @Column(name = "valor", precision = 12, scale = 2)
     private BigDecimal valor;
  
-    public void ContasReceber() {}
+    public  ContasReceber() {}
  
     public Long getId() {
         return id;
