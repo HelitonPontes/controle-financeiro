@@ -33,15 +33,11 @@ public class ContasPagarController {
     public ResponseEntity<ContasPagar> createContasPagar(@RequestBody 
     ContasPagar contaspagar) {
 
-        
-
         ContasPagar contaspagarCreated = contaspagarRepository.save(contaspagar);
         return new ResponseEntity<>(contaspagarCreated, HttpStatus.CREATED);
     }
 
-
     //READ
-
     @GetMapping()
     public ResponseEntity<List<ContasPagar>> getAllContasPagar() {
         
@@ -52,6 +48,7 @@ public class ContasPagarController {
         return new ResponseEntity<>(contaspagars, HttpStatus.OK);
     }
     
+    //READ
     @GetMapping("{id}")
     public ResponseEntity<ContasPagar> getById(@PathVariable Long id) {
         // Percorre a lista de usuários para encontrar o usuário com o ID correspondente

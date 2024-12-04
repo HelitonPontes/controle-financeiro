@@ -19,7 +19,8 @@ public class Categoria {
     private String descricao;
  
     @Column(name = "ativo")
-    private Boolean ativo;
+    private Boolean ativo = true; // Ativo por padrão
+
  
 
     public Categoria() {}

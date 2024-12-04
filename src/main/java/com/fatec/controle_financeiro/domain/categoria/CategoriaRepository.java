@@ -1,6 +1,7 @@
 package com.fatec.controle_financeiro.domain.categoria;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +15,9 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Long>  {
  
   // Busca por nome usando LIKE %nameparam%
   List<Categoria> findAllByDescricaoContaining(String descricao);
+
+   // Método para encontrar uma categoria pela descrição
+   Optional<Categoria> findByDescricao(String descricao);
 
   //// Busca por nome usando LIKE com query manual
   @Query("SELECT c FROM Categoria c WHERE c.descricao LIKE %:descricao%")
